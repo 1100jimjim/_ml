@@ -41,27 +41,38 @@ class MicroGPT(nn.Module):
         logits = self.ln(x)
         return logits
 
-# ================= 測試與訓練區塊 =================
+# ================= 參數設定 =================
 vocab_size = 100
 n_embd = 64
 n_head = 4
 batch_size = 32
 seq_len = 10
 
-# 1. 建立模型與損失函數
+# 1. 建立模型、損失函數與優化器
 model = MicroGPT(vocab_size, n_embd, n_head)
 criterion = nn.CrossEntropyLoss()
+optimizer = torch.optim.AdamW(model.parameters(), lr=0.01)
 
-# 2. 生成完全對齊的測試資料 (維度都是 batch_size, seq_len)
+# 2. 生成測試資料 (確保 inputs 和 targets 維度一致)
 inputs = torch.randint(0, vocab_size, (batch_size, seq_len))
 targets = torch.randint(0, vocab_size, (batch_size, seq_len))
 
-# 3. 前向傳播
-outputs = model(inputs)
+# ================= 訓練迴圈 (全英文輸出避開亂碼) =================
+print("========================================")
+print("Training started...")
+print("========================================")
 
-# 4. 計算 Loss (將 outputs 壓平對齊 vocab_size，targets 攤平成 1D)
-loss = criterion(outputs.view(-1, vocab_size), targets.view(-1))
+for epoch in range(100):
+    optimizer.zero_grad()            # 清空梯度
+    outputs = model(inputs)          # 前向傳播
+    loss = criterion(outputs.view(-1, vocab_size), targets.view(-1)) # 計算誤差
+    loss.backward()                  # 反向傳播
+    optimizer.step()                 # 更新權重
+    
+    # 每 10 次印出一次結果
+    if (epoch + 1) % 10 == 0:
+        print(f"Epoch {epoch + 1:3d} | Loss: {loss.item():.4f}")
 
 print("========================================")
-print(f"🎉 恭喜！模型執行成功！Loss: {loss.item():.4f}")
+print("Training finished! Ready for submission.")
 print("========================================")
