@@ -1,0 +1,13 @@
+[Running] python -u "c:\ccc\py2cs\03-機器學習\機器學習HW\HW3.py"
+=== Start Training Mini Transformer ===
+
+Epoch 00 | Loss: 2.1226 | Target Prob: 0.1197
+Epoch 10 | Loss: 1.2081 | Target Prob: 0.2988
+Epoch 20 | Loss: 0.7447 | Target Prob: 0.4749
+Epoch 30 | Loss: 0.5205 | Target Prob: 0.5942
+Epoch 40 | Loss: 0.4238 | Target Prob: 0.6545
+Epoch 49 | Loss: 0.3958 | Target Prob: 0.6731
+
+=== Training Complete! ===
+
+[Done] exited with code=0 in 0.163 seconds
