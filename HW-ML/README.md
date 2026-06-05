@@ -10,7 +10,7 @@
 
 ---
 
-## ✨ 專案核心價值 (Core Value Proposition)
+## 專案核心價值 (Core Value Proposition)
 
 1. **白盒化底層引擎 (White-box Engine)**：
    完全掌控神經網路的數學底層，從全連接層的空間映射、ReLU 非線性轉換，到 Softmax 與 Cross-Entropy 結合的微積分連鎖律 (Chain Rule) 梯度推導，皆以高可讀性之 Python 程式碼實作。
@@ -21,7 +21,7 @@
 
 ---
 
-## 🛠️ 系統架構與特徵工程 (Architecture & Feature Engineering)
+## 系統架構與特徵工程 (Architecture & Feature Engineering)
 
 本模型採用 `5 -> 16 -> 3` 的網路拓樸架構。為了讓引擎能精準捕捉賽事規律，輸入層特別設計了 **5 階段量化評估框架**：
 
@@ -35,7 +35,7 @@
 
 ---
 
-## 🚀 數學推導與效能表現 (Mathematics & Performance)
+## 數學推導與效能表現 (Mathematics & Performance)
 
 ### 極簡化反向傳播 (Optimized Backpropagation)
 本專案在效能上的最大亮點，在於數學層面的化簡。將 Softmax 激勵函數與分類交叉熵 (Categorical Cross-Entropy) 損失函數合併求導，將原本複雜的雅可比矩陣 (Jacobian matrix) 運算，化簡為優雅的：
@@ -52,7 +52,7 @@
 
 ---
 
-## 🔮 未來應用藍圖 (Roadmap & Future Work)
+## 未來應用藍圖 (Roadmap & Future Work)
 
 本引擎的最終目標不僅僅是預測勝率，而是打造一套完整的**體育量化投資系統**：
 
@@ -64,5 +64,3 @@
    引入 Adam 優化器以處理更稀疏的特徵，並加入 Dropout 層以防止模型在單一球隊數據上過度擬合 (Overfitting)。
 
 ---
-
-> *"In data we trust, in algorithms we execute."*
